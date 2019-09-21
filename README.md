@@ -1,7 +1,10 @@
-# aurelia-syncfusion-bridge
+# aurelia-syncfusion-bridge V2
 
 A set of [Aurelia](http://aurelia.io) wrappers for [Syncfusion Essential JS 2 for JavaScript](https://www.syncfusion.com/javascript-ui-controls)
 
+## Project Goals:
+  Use Typescript for all files.
+  Maintain compatibility with Aurelia vCurrent (not vNext at this time). Once vNext is released at 1.0, then update accordingly.
 
 [![Join the chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/syncfusion/aurelia-syncfusion-bridge?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
