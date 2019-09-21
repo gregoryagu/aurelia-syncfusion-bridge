@@ -343,6 +343,9 @@ jQuery.fn.ejAutocomplete = function (options) {
 ///Number of items to be displayed in the suggestion list.
 ///<br/>itemsCount-number	default-0
 ///<br/><br/>
+///To enable or disable the diacritic characters of the Autocomplete suggestion list when filtering.
+///<br/>ignoreAccent-boolean	default-false
+///<br/><br/>
 ///Set the localization culture for Autocomplete Widget.
 ///<br/>locale-string	default-
 ///<br/><br/>
@@ -6387,6 +6390,11 @@ getValue:function(){
 /// Returns the current date value in the DatePicker control.
 /// </summary>
 },
+setValue:function(){
+/// <summary>
+/// sets the date value for the DatePicker.
+/// </summary>
+},
 hide:function(){
 /// <summary>
 /// Close the DatePicker popup, if it is in opened state.
@@ -7840,6 +7848,9 @@ jQuery.fn.ejDiagram = function (options) {
 ///Defines how long edges should be, ideally. This will be the resting length for the springs.
 ///<br/>maxIteration-number	default-1000
 ///<br/><br/>
+///Enable or disable connector's segment overlapping with each other when executing the layout with multiple parents.
+///<br/>avoidSegmentOverlapping-boolean	default-false
+///<br/><br/>
 ///Defines the current culture of diagram
 ///<br/>locale-string	default-en-US
 ///<br/><br/>
@@ -8085,6 +8096,9 @@ jQuery.fn.ejDiagram = function (options) {
 ///<br/><br/>
 ///Describes the transparency level of the region
 ///<br/>opacity-number	default-1
+///<br/><br/>
+///defines the node border with a smooth transition from one color to another color.
+///<br/>borderGradient-any	default-null
 ///<br/><br/>
 ///Defines the header of a swimlane/lane
 ///<br/>header-any	default-{ text: Title, fontSize: 11 }
@@ -9351,6 +9365,15 @@ jQuery.fn.ejDraggable = function (options) {
 ///<br/><br/>
 ///Used to group sets of draggable and droppable items, in addition to droppable's accept option. A draggable with the same scope value as a droppable will be accepted by the droppable.
 ///<br/>scope-string	default-&#39;default&#39;
+///<br/><br/>
+///Used to enable auto scroll while drag and drop the element.
+///<br/>autoScroll-boolean	default-&#39;false&#39;
+///<br/><br/>
+///Represents when to start the scrolling inside the scroll container on dragging
+///<br/>scrollSensitivity-number	default-&#39;20&#39;
+///<br/><br/>
+///Specifies how much distance of scroll should move on dragging once reached scroll sensitivity area.
+///<br/>scrollSpeed-number	default-&#39;20&#39;
 ///</summary>
 ///<param name="options" type="Object">
 ///The widget configuration options
@@ -9958,7 +9981,7 @@ jQuery.fn.ejFileExplorer = function (options) {
 ///<br/>enableThumbnailCompress-boolean	default-false
 ///<br/><br/>
 ///Allows specified type of files only to display in FileExplorer control.
-///<br/>fileTypes-string	default-.
+///<br/>fileTypes-string	default-* . *
 ///<br/><br/>
 ///By using filterSettings property, you can customize the search functionality of the search bar in FileExplorer control.
 ///<br/>filterSettings-FilterSettings	default-
@@ -10337,6 +10360,9 @@ jQuery.fn.ejGantt = function (options) {
 ///Enables or disables sorting. When enabled, we can sort the column by clicking on the column.
 ///<br/>allowSorting-boolean	default-false
 ///<br/><br/>
+///Enables or disables the rendering of unscheduled tasks.
+///<br/>allowUnscheduledTask-boolean	default-false
+///<br/><br/>
 ///Specifies the baseline background color in Gantt
 ///<br/>baselineColor-string	default-#fba41c
 ///<br/><br/>
@@ -10371,7 +10397,7 @@ jQuery.fn.ejGantt = function (options) {
 ///<br/>dateFormat-string	default-MM/dd/yyyy
 ///<br/><br/>
 ///Specifies the customized working time for tasks in Gantt
-///<br/>dayWorkingTime-Array&lt;any&gt;	default-[{ from: 08:00 AM, to: 12:00 PM }, { from: 01:00 PM, to: 05:00 PM }]
+///<br/>dayWorkingTime-Array&lt;any&gt;	default-[{ from: 08:00 AM, to: 12:00 PM , background:   }, { from: 01:00 PM, to: 05:00 PM , background:  }]
 ///<br/><br/>
 ///Option for customizing the drag tooltip while reordering the rows.
 ///<br/>dragTooltip-DragTooltip	default-
@@ -10502,6 +10528,9 @@ jQuery.fn.ejGantt = function (options) {
 ///Default Value
 ///<br/>groupNameMapping-string	default-
 ///<br/><br/>
+///Specifies whether to highlight the non working time in Gantt.
+///<br/>highlightNonWorkingTime-boolean	default-false
+///<br/><br/>
 ///Specifies whether to highlight the weekends in Gantt .
 ///<br/>highlightWeekends-boolean	default-true
 ///<br/><br/>
@@ -10537,6 +10566,9 @@ jQuery.fn.ejGantt = function (options) {
 ///<br/><br/>
 ///To Specify the JsRender script Id to customize the mile stone with our preference
 ///<br/>milestoneTemplate-string	default-
+///<br/><br/>
+///Specifies the background color for non working time in Gantt.
+///<br/>nonWorkingBackground-string	default-
 ///<br/><br/>
 ///Specifies the mapping property path for the task description in datasource
 ///<br/>notesMapping-string	default-
@@ -11261,6 +11293,12 @@ refreshContent:function(templateRefresh){
 /// Refresh the grid contents. The template refreshment is based on the argument passed along with this method
 /// </summary>
 /// <param name="templateRefresh"	type="boolean">optional When templateRefresh is set true, template and grid contents both are refreshed in grid else only grid content is refreshed</param>
+},
+refreshData:function(additionalParameters){
+/// <summary>
+/// Refresh the grid contents with updated server Data, using XMLHttpRequest. Url Path should be provided in Grid datasource otherwise it refreshes with local data without XMLHttpRequest.
+/// </summary>
+/// <param name="additionalParameters"	type="any">optionalData to the server </param>
 },
 refreshTemplate:function(){
 /// <summary>
@@ -12620,6 +12658,18 @@ jQuery.fn.ejKanban = function (options) {
 ///<br/><br/>
 ///To enable or disable DragAndDrop across swim lane.
 ///<br/>allowDragAndDrop-boolean	default-false
+///<br/><br/>
+///To enable or disable empty swimlane on Kanban board.  It is used to shown empty swimlane when no data's present on headers key mapping value.
+///<br/>showEmptySwimlane-boolean	default-false
+///<br/><br/>
+///Gets or sets an object that indicates to render the swimlane rows with specified swimlane headers.
+///<br/>headers-Array&lt;any&gt;	default-[]
+///<br/><br/>
+///Gets or sets a value that indicates to render the Kanban with specified swimlane header text.
+///<br/>text-string	default-null
+///<br/><br/>
+///Gets or sets a value that indicates to render the Kanban with specified swimlane header key.
+///<br/>key-string	default-null
 ///<br/><br/>
 ///Customize the settings for unassigned category of swim lane.
 ///<br/>unassignedGroup-any	default-Object
@@ -14612,7 +14662,7 @@ showItem:function(index){
 /// <summary>
 /// To show item in the given index.
 /// </summary>
-/// <param name="index"	type="number">Specifies the index value to show the hided item.</param>
+/// <param name="index"	type="number">Specifies the index value to show the hidden item.</param>
 },
 unCheckAllItem:function(){
 /// <summary>
@@ -14769,7 +14819,7 @@ jQuery.fn.ejListView = function (options) {
 ///<br/>itemRequestCount-number	default-5
 ///<br/><br/>
 ///Specifies the maximum number of items to be fetched. Note: This will work only with Virtual scrolling
-///<br/>totalItemsCount-number	default-null
+///<br/>totalItemsCount-number	default-5
 ///<br/><br/>
 ///Loads the list data on demand via scrolling behavior to improve the applicationâ€™s performance. There are two ways to load data which can be defined using virtualScrollMode property.
 ///<br/>allowVirtualScrolling-boolean	default-false
@@ -14823,7 +14873,7 @@ zoom:function(level, isAnimate){
 },
 refreshLayer:function(){
 /// <summary>
-/// Method to reload the shape marker with updated values.
+/// Method to reload the specified layer based on layer and sublayer index value.
 /// </summary>
 },
 addMarkers:function(){
@@ -15006,6 +15056,27 @@ jQuery.fn.ejMap = function (options) {
 ///<br/><br/>
 ///set the smartLabelSize property
 ///<br/>smartLabelSize-ej.datavisualization.Map.LabelSize|string	default-fixed
+///<br/><br/>
+///Options for customizing the data label font.
+///<br/>font-any	default-
+///<br/><br/>
+///Font family of the data label.
+///<br/>fontFamily-string	default-Segoe UI
+///<br/><br/>
+///Font style of the data label.
+///<br/>fontStyle-ej.datavisualization.Map.FontStyle|string	default-normal.
+///<br/><br/>
+///NameType DescriptionRegularstring Specifies the font weight as regular.BoldstringSpecifies the font weight as bold.LighterstringSpecifies the font weight as lighter.  
+///<br/>fontWeight-ej.datavisualization.Map.FontWeight|string	default-regular. See
+///<br/><br/>
+///Opacity of the text.
+///<br/>opacity-number	default-1
+///<br/><br/>
+///Font color of the data label text.
+///<br/>color-string	default-null
+///<br/><br/>
+///Font size of the data label.
+///<br/>size-string	default-12px
 ///<br/><br/>
 ///Specifies the map view type.
 ///<br/>geometryType-ej.datavisualization.Map.GeometryType|string	default-&#39;geographic&#39;
@@ -15994,6 +16065,11 @@ abortPrint:function(){
 /// Abort the printing function and restores the PDF viewer.
 /// </summary>
 },
+abortDownload:function(){
+/// <summary>
+/// Aborts the download operation.
+/// </summary>
+},
 showPrintTools:function(show){
 /// <summary>
 /// Shows/hides the print icon in the toolbar.
@@ -16067,6 +16143,12 @@ showMagnificationTools:function(show){
 /// </summary>
 /// <param name="show"	type="boolean">shows/hides zoom tools in the toolbar</param>
 },
+showTextSearchTool:function(show){
+/// <summary>
+/// Shows/hides the search tool in the toolbar.
+/// </summary>
+/// <param name="show"	type="boolean">shows/hides search tool in the toolbar</param>
+},
 fitToPage:function(){
 /// <summary>
 /// Scales the page to fit the page in the container in the control.
@@ -16085,6 +16167,11 @@ zoomIn:function(){
 zoomOut:function(){
 /// <summary>
 /// Shrinks the page to the previous value in the magnification in the drop down list.
+/// </summary>
+},
+updateViewerSize:function(){
+/// <summary>
+/// Resize the viewer based on the parent element height.
 /// </summary>
 },
 zoomTo:function(zoomValue){
@@ -16108,6 +16195,12 @@ searchPrevious:function(){
 /// <summary>
 /// Searches the previous occurrence of the searched text from the current occurrence in the PDF viewer control.
 /// </summary>
+},
+setJSONData:function(jsonData){
+/// <summary>
+/// Set the JSON data that are formed for rendering the document content in PDF viewer.
+/// </summary>
+/// <param name="jsonData"	type="any">Set the JSON data that are formed for rendering the document content.</param>
 },
 matchCase:function(enableMatchCase){
 /// <summary>
@@ -16269,6 +16362,39 @@ jQuery.fn.ejPdfViewer = function (options) {
 ///Gets/sets the opacity of the handwritten signature.
 ///<br/>opacity-number	default-
 ///<br/><br/>
+///Enables/ disables the text selection context menu.
+///<br/>textSelectionContextMenu-TextSelectionContextMenu	default-
+///<br/><br/>
+///Enables/ disables the text selection context menu.
+///<br/>isEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the copy menu in the text selection context menu.
+///<br/>isCopyEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the search menu in the text selection context menu.
+///<br/>isSearchEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the highlight annotation menu in the text selection context menu.
+///<br/>isHighlightEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the strikeout annotation menu in the text selection context menu.
+///<br/>isStrikeoutEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the annotation context menu.
+///<br/>annotationContextMenu-AnnotationContextMenu	default-
+///<br/><br/>
+///Enables/disables the annotation context menu.
+///<br/>isEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the popup menu in the annotation context menu.
+///<br/>isPopupEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the delete menu in the annotation context menu.
+///<br/>isDeleteEnable-boolean	default-
+///<br/><br/>
+///Enables/disables the properties menu in the annotation context menu.
+///<br/>isPropertiesEnable-boolean	default-
+///<br/><br/>
 ///Specifies the type of the annotations.
 ///<br/>annotationType-ej.PdfViewer.AnnotationType|string	default-
 ///<br/><br/>
@@ -16286,6 +16412,9 @@ jQuery.fn.ejPdfViewer = function (options) {
 ///<br/><br/>
 ///Specifies the viewer interaction mode.
 ///<br/>interactionMode-ej.PdfViewer.InteractionMode|string	default-
+///<br/><br/>
+///Gets or sets the buffering mode of the PDF viewer control when allowClientBuffering is set to true.
+///<br/>bufferingMode-ej.PdfViewer.BufferingMode|string	default-
 ///<br/><br/>
 ///Specifies the open state of the hyperlink in the PDF document.
 ///<br/>hyperlinkOpenState-ej.PdfViewer.LinkTarget|string	default-
@@ -17012,6 +17141,9 @@ jQuery.fn.ejPivotClient = function (options) {
 ///<br/><br/>
 ///Allows you to set the number of members to be displayed in each page of the member editor on applying the paging in it.
 ///<br/>memberEditorPageSize-number	default-100
+///<br/><br/>
+///Enables/Disables sorting option in member editor dialog for the members of the respective field.
+///<br/>enableMemberEditorSorting-boolean	default-false
 ///<br/><br/>
 ///Sets the summary layout for the pivot grid. Following are the ways in which the summary can be positioned: normal summary (bottom), top summary, no summary, and Microsoft Excel summary.
 ///<br/>gridLayout-ej.PivotGrid.Layout|string	default-ej.PivotGrid.Layout.Normal
@@ -17783,6 +17915,9 @@ jQuery.fn.ejPivotGrid = function (options) {
 ///Allows you to set the number of members to be displayed in each page of member editor on applying paging in it.
 ///<br/>memberEditorPageSize-number	default-100
 ///<br/><br/>
+///Enables/Disables sorting option in member editor dialog for the members of the respective field.
+///<br/>enableMemberEditorSorting-boolean	default-false
+///<br/><br/>
 ///Enables/disables the display of grand total for rows and columns.
 ///<br/>enableGrandTotal-boolean	default-true
 ///<br/><br/>
@@ -18434,7 +18569,7 @@ requiresCount:function(){
 /// Specifies that the total number of records(count) is required in the result.
 /// </summary>
 },
-search:function(fieldName, operator, value, ignoreCase){
+search:function(fieldName, operator, value, ignoreCase, ignoreAccent){
 /// <summary>
 /// It is used to search the given search key value in JSON data
 /// </summary>
@@ -18442,6 +18577,7 @@ search:function(fieldName, operator, value, ignoreCase){
 /// <param name="operator"	type="string">conditional Operators</param>
 /// <param name="value"	type="string">value to filter the field name</param>
 /// <param name="ignoreCase"	type="boolean">on/off case sensitive.</param>
+/// <param name="ignoreAccent"	type="boolean">Filter diacritics based on the boolean value.</param>
 },
 select:function(fieldName){
 /// <summary>
@@ -18479,7 +18615,7 @@ using:function(dataManager){
 /// </summary>
 /// <param name="dataManager"	type="any">Pass new data source</param>
 },
-where:function(fieldName, operator, value, ignoreCase){
+where:function(fieldName, operator, value, ignoreCase, ignoreAccent){
 /// <summary>
 /// It is used to filter records based on the filter condition.
 /// </summary>
@@ -18487,6 +18623,7 @@ where:function(fieldName, operator, value, ignoreCase){
 /// <param name="operator"	type="string">conditional Operators</param>
 /// <param name="value"	type="string">value to filter the field name</param>
 /// <param name="ignoreCase"	type="boolean">on/off case sensitive.</param>
+/// <param name="ignoreAccent"	type="boolean">Filter diacritics based on the boolean value.</param>
 },
 };
 jQuery.fn.ejQuery=function(){
@@ -18830,6 +18967,9 @@ jQuery.fn.ejRangeNavigator = function (options) {
 ///Toggles the placement of slider exactly on the place it left or on the nearest interval.
 ///<br/>allowSnapping-boolean	default-false
 ///<br/><br/>
+///It allows to show the value between the particular periods (i.e) from 1st January to 31st February and so on. The default value is true. If we set the property as false, it allows to show the value between the particular periods.(i.e) from 1st January to 31st January and so on.
+///<br/>allowNextValue-boolean	default-true
+///<br/><br/>
 ///Options for customizing the color, opacity and width of the chart border.
 ///<br/>border-Border	default-
 ///<br/><br/>
@@ -18938,6 +19078,9 @@ jQuery.fn.ejRangeNavigator = function (options) {
 ///Specifies the position of the labels to render either inside or outside of plot area
 ///<br/>labelPlacement-ej.datavisualization.RangeNavigator.LabelPlacement|string	default-outside
 ///<br/><br/>
+///Specifies to hide the labels when it intersects with each other.
+///<br/>labelIntersectAction-ej.datavisualization.RangeNavigator.LabelIntersectAction|string	default-none
+///<br/><br/>
 ///Specifies the position of the labels in higher level
 ///<br/>position-ej.datavisualization.RangeNavigator.Position|string	default-top
 ///<br/><br/>
@@ -19003,6 +19146,9 @@ jQuery.fn.ejRangeNavigator = function (options) {
 ///<br/><br/>
 ///Specifies the position of the labels to render either inside or outside of plot area. See LabelPlacement
 ///<br/>labelPlacement-ej.datavisualization.RangeNavigator.LabelPlacement|string	default-outside
+///<br/><br/>
+///Specifies to hide the labels when it intersects with each other.
+///<br/>labelIntersectAction-ej.datavisualization.RangeNavigator.LabelIntersectAction|string	default-none
 ///<br/><br/>
 ///Specifies the position of the labels in lower level.See Position
 ///<br/>position-ej.datavisualization.RangeNavigator.Position|string	default-bottom
@@ -20604,10 +20750,11 @@ insertRow:function(before, cell){
 /// <param name="before"	type="boolean">If itâ€™s true, add a row before the cell, otherwise add a row after the cell</param>
 /// <param name="cell"	type="JQuery">Row will be added based on the given cell element</param>
 },
-pasteContent:function(){
+pasteContent:function(html){
 /// <summary>
 /// This method helps to insert/paste the content at the current cursor (caret) position or the selected content to be replaced with our text by passing the value as parameter to the pasteContent method in the Editor.
 /// </summary>
+/// <param name="html"	type="string">paste content</param>
 },
 refresh:function(){
 /// <summary>
@@ -21719,7 +21866,7 @@ save:function(Filename){
 },
 show:function(){
 /// <summary>
-/// Used to Show the signature widget, if it is already hided.
+/// Used to Show the signature widget, if it is already hidden.
 /// </summary>
 },
 undo:function(){
@@ -22216,6 +22363,9 @@ jQuery.fn.ejSpellCheck = function (options) {
 ///<br/><br/>
 ///When set to true, allows sending Asynchronous ajax request for checking the spelling errors.
 ///<br/>enableAsync-boolean	default-true
+///<br/><br/>
+///To set either â€˜Postâ€™ or â€˜Getâ€™ for ajax request type which invokes when validate, get suggestion and dictionary action.Possible values are â€˜POSTâ€™ or â€˜GETâ€™
+///<br/>ajaxRequestType-string	default-GET
 ///<br/><br/>
 ///Sets the data type for the ajax call used within the SpellCheck control, denoting the type of data that are expected to be retrieved from the server. The applicable values are json and jsonp.
 ///<br/>ajaxDataType-string	default-jsonp
@@ -22759,13 +22909,18 @@ redo:function(){
 },
 refreshContent:function(sheetIdx){
 /// <summary>
-/// This method is used to refresh the content in Spreadsheet.
+/// This method is used to refresh the Spreadsheet based on the sheet model values.
 /// </summary>
 /// <param name="sheetIdx"	type="number">Pass the index of the sheet.</param>
 },
 refreshSpreadsheet:function(){
 /// <summary>
-/// This method is used to refresh the Spreadsheet.
+/// This method is used to refresh the Spreadsheet element based on the page layout.
+/// </summary>
+},
+refresh:function(){
+/// <summary>
+/// This method destroys and re-creates the entire Spreadsheet control.
 /// </summary>
 },
 removeCustomFormula:function(formulaName, functionName){
@@ -23183,6 +23338,9 @@ jQuery.fn.ejSpreadsheet = function (options) {
 ///<br/><br/>
 ///Gets or sets a value that indicates to define password while importing in the Spreadsheet.
 ///<br/>password-string	default-
+///<br/><br/>
+///Gets a value that indicates whether importing or not while loading the sheets in Spreadsheet.
+///<br/>isImport-boolean	default-false
 ///<br/><br/>
 ///Gets or sets a value that indicates whether to enable or disable readonly support in the Spreadsheet.
 ///<br/>isReadOnly-boolean	default-false
@@ -24603,6 +24761,12 @@ jQuery.fn.ejTimePicker = function (options) {
 ///Defines the time format displayed in the TimePicker.
 ///<br/>timeFormat-string	default-h:mm tt
 ///<br/><br/>
+///Set the jQuery validation error message in TimePicker.
+///<br/>validationMessages-any	default-null
+///<br/><br/>
+///Set the jQuery validation rules in TimePicker.
+///<br/>validationRules-any	default-null
+///<br/><br/>
 ///Sets a specified time value on the TimePicker.
 ///<br/>value-string|Date	default-null
 ///<br/><br/>
@@ -25551,6 +25715,12 @@ jQuery.fn.ejTreeGrid = function (options) {
 ///Enables or disables the ability to edit a row or cell.
 ///<br/>allowEditing-boolean	default-false
 ///<br/><br/>
+///specifies the batch edit mode in TreeGrid.
+///<br/>batchEditSettings-any	default-
+///<br/><br/>
+///Specifies the batch edit mode whether it is cell, row or dialog.
+///<br/>editMode-ej.TreeGrid.BatchEditMode|string	default-ej.TreeGrid.BatchEditMode.Cell
+///<br/><br/>
 ///Specifies the mouse action whether single click or double click to begin the editing
 ///<br/>beginEditAction-ej.TreeGrid.BeginEditAction|string	default-ej.TreeGrid.BeginEditAction.DblClick
 ///<br/><br/>
@@ -25561,7 +25731,7 @@ jQuery.fn.ejTreeGrid = function (options) {
 ///<br/>editMode-ej.TreeGrid.EditMode|string	default-ej.TreeGrid.EditMode.CellEditing
 ///<br/><br/>
 ///Specifies the position where the new row has to be added.
-///<br/>rowPosition-ej.TreeGrid.RowPosition|string	default-top
+///<br/>rowPosition-ej.TreeGrid.RowPosition|string	default-ej.TreeGrid.RowPosition.Top
 ///<br/><br/>
 ///Enable or disable the confirmation dialog while deleting the record.
 ///<br/>showDeleteConfirmDialog-boolean	default-false
@@ -25618,7 +25788,7 @@ jQuery.fn.ejTreeGrid = function (options) {
 ///<br/>value-string	default-
 ///<br/><br/>
 ///Gets or sets a value that indicates the maximum number of filter choices that can be showed in the excel styled filter menu.
-///<br/>maxFilterChoice-number	default-1000
+///<br/>maxFilterChoices-number	default-1000
 ///<br/><br/>
 ///Specifies whether to wrap the header text when it is overflown i.e., when it exceeds the header width.
 ///<br/>headerTextOverflow-ej.TreeGrid.HeaderTextOverflow|string	default-ej.TreeGrid.HeaderTextOverflow.None
@@ -25685,6 +25855,9 @@ jQuery.fn.ejTreeGrid = function (options) {
 ///<br/><br/>
 ///Specifies the operator for the search key words in toolbar searching.
 ///<br/>operator-string	default-contains
+///<br/><br/>
+///Specifies the search mode of records in searching.
+///<br/>searchHierarchyMode-ej.TreeGrid.SearchHierarchyMode|string	default-ej.TreeGrid.SearchHierarchyMode.Parent
 ///<br/><br/>
 ///Specifies the selected cell information on rendering TreeGrid.
 ///<br/>selectedCellIndexes-Array&lt;SelectedCellIndexes&gt;	default-
@@ -25787,6 +25960,9 @@ jQuery.fn.ejTreeGrid = function (options) {
 ///<br/><br/>
 ///Specifies the summary columns in the summary rows.
 ///<br/>summaryColumns-Array&lt;any&gt;	default-
+///<br/><br/>
+///Specifies the custom summary calculate function or text.
+///<br/>customSummaryValue-string	default-
 ///<br/><br/>
 ///Specifies summary column used to perform the summary calculation.
 ///<br/>dataMember-string	default-
@@ -26141,19 +26317,21 @@ jQuery.fn.ejTreeMap = function (options) {
 ej.TreeView=function(){};
 ej.TreeView.prototype={
 
-addNode:function(newNodeText, target){
+addNode:function(newNodeText, target, preventTargetExpand){
 /// <summary>
 /// To add a Node or collection of nodes in TreeView. If target tree node is specified, then the given nodes are added as child of target tree node, otherwise nodes are added in TreeView.
 /// </summary>
 /// <param name="newNodeText"	type="string|any">New node text or JSON object</param>
 /// <param name="target"	type="string|any">ID of TreeView node/object of TreeView node</param>
+/// <param name="preventTargetExpand"	type="boolean">Parent node will be prevented from auto expanding</param>
 },
-addNodes:function(collection, target){
+addNodes:function(collection, target, preventTargetExpand){
 /// <summary>
 /// To add a collection of nodes in TreeView. If target tree node is specified, then the given nodes are added as child of target tree node, otherwise nodes are added in TreeView.
 /// </summary>
 /// <param name="collection"	type="any|any[]">New node details in JSON object</param>
 /// <param name="target"	type="string|any">ID of TreeView node/object of TreeView node</param>
+/// <param name="preventTargetExpand"	type="boolean">Parent node will be prevented from auto expanding</param>
 },
 checkAll:function(){
 /// <summary>

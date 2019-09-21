@@ -1557,18 +1557,18 @@
         }
     }
 
-    .e-btn.e-select, .e-btn.e-select {
+    .e-btn.e-select, .e-btn.e-select,  .e-btn.e-tbtn.e-select,  .e-btn.e-split-btn.e-select {
         & when not(@skin="material") {
             border: 1px solid;
         }
     }
 
-    .e-btn,  .e-btn,  .e-btn, .e-btn .e-btn-span {
+    .e-btn,  .e-btn,  .e-btn, .e-btn .e-btn-span,  .e-btn.e-tbtn .e-btn-span,  .e-btn.e-split-btn .e-btn-span {
         vertical-align: middle;
         border-spacing: 0;
     }
 
-    .e-btn .e-icon,  .e-split-btn-div .e-icon {
+    .e-btn .e-icon,  .e-tbtn.e-btn .e-btn-span .e-icon,  .e-split-btn-div .e-icon,  .e-split-btn .e-icon {
         display: table-cell;
         padding: 4px 3px;
         visibility: visible;
@@ -1640,9 +1640,9 @@
         padding: 0.1em 0.4em 0.3em;
     }
 
-    .e-btn .e-btntxt,  .e-tbtn.e-txt {
+    .e-btn .e-btntxt,  .e-tbtn.e-btn .e-btn-span .e-btntxt,  .e-split-btn.e-btn .e-btn-span .e-btntxt,  .e-tbtn.e-txt, {
         width: auto;
-        cursor: default;
+        cursor: pointer;
         display: table-cell;
         vertical-align: middle;
         line-height: normal;
@@ -5559,7 +5559,7 @@
             /*material*/
             height: 14px;
             width: 14px;
-        }
+		}
 
         & when (@skin= "office-365") {
             height: 16px;
@@ -5574,7 +5574,12 @@
             top: 3px;
         }
     }
-
+     .e-excelfilter .e-menu.e-vertical .e-list .e-chkbox-small > span {
+        & when (@skin= "material") {
+            /*material*/
+            top: 4px;
+		}
+	}
     .e-chkbox-wrap .e-chkbox-medium > span {
         height: 20px;
         width: 20px;
@@ -5696,11 +5701,13 @@
     }
 
     .e-radiobtn-wrap .e-radiobtn {
-        display: none;
+        display: block;
+        visibility: hidden;
         height: 0px;
         width: 0px;
         z-index: 1;
         text-align: left;
+        position: absolute;
     }
 
     .e-rad-outer {
@@ -5711,73 +5718,120 @@
         display: block;
     }
 
-    .e-radiobtn-wrap > span .e-rad-icon {
+    .e-radiobtn-wrap > span.e-radmedium > span.e-rad-icon {
         position: absolute;
+        width: 90%;
+        height: 80%;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        font-size:16px;
+
+        & when (@skin ="material") { 
+        transform: scale(0.75);
+        -moz-transform: scale(0.75);
+        -webkit-transform: scale(0.75);
+        height: 93%;
+        width:100%;
+        }
+
+        & when (@skin="office-365"){
+        transform: scale(0.75);
+        -moz-transform: scale(0.75);
+        -webkit-transform: scale(0.75);
+        height: 93%;
+        width:100%;
+        }
+    }
+
+    .e-radiobtn-wrap > span.e-radsmaller > span.e-rad-icon {
+        position: absolute;
+        width: 75%;
+        height: 75%;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        font-size: 16px;
+
+        & when (@skin= "material") 
+        {
         width: 100%;
         height: 100%;
+        transform: scale(0.63);
+        -moz-transform: scale(0.63);
+        -webkit-transform: scale(0.63);
+        }
+        & when (@skin="office-365"){
+        width: 100%;
+        height: 100%;
+        transform: scale(0.63);
+        -moz-transform: scale(0.63);
+        -webkit-transform: scale(0.63);
+        }
     }
 
     .e-radiobtn-wrap .e-radmedium {
         & when (@skin= "material") {
             height: 20px;
             width: 20px;
-            border-radius: 20px;
-            -moz-border-radius: 20px;
-            -webkit-border-radius: 20px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            left:0;
+            top:0;
         }
 
         & when (@skin= "office-365") {
             height: 20px;
             width: 20px;
-            border-radius: 20px;
-            -moz-border-radius: 20px;
-            -webkit-border-radius: 20px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            left:0;
+            top:0;
         }
 
         & when not (@skin= "material") and not (@skin="office-365") {
             height: 16px;
             width: 16px;
-            border-radius: 15px;
-            -moz-border-radius: 15px;
-            -webkit-border-radius: 15px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            top:0;
+            left:0;
         }
     }
 
     .e-radiobtn-wrap .e-radmedium .e-rad-icon {
-        font-size: 9px;
-        border-radius: 9px;
-        -moz-border-radius: 9px;
-        -webkit-border-radius: 9px;
-
-        & when (@skin= "material") {
-            font-size: 12px;
-            line-height: 11px;
-        }
-
-        & when (@skin= "office-365") {
-            font-size: 10px;
-            line-height: 11px;
-        }
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
     }
 
     .e-radiobtn-wrap .e-radmedium .e-rad-icon.e-icon:before {
         & when (@skin= "material") {
-            height: 10px;
-            width: 10px;
+            height: 16px;
+            width: 16px;
         }
 
         & when (@skin="office-365") {
-            height: 10px;
-            width: 10px;
+            height: 16px;
+            width: 16px;
         }
 
         & when not (@skin= "material") and not (@skin="office-365") {
             /*other*/
-            height: 9px;
-            width: 9px;
+            height: 14px;
+            width: 14px;
         }
 
-        margin: 24% auto;
+        margin: 9% auto;
     }
 
     .e-radiobtn-wrap .e-radsmaller {
@@ -5785,49 +5839,36 @@
         & when (@skin= "material") {
             height: 16px;
             width: 16px;
-            border-radius: 16px;
-            -moz-border-radius: 16px;
-            -webkit-border-radius: 16px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
         }
 
         & when (@skin= "office-365") {
             height: 16px;
             width: 16px;
-            border-radius: 16px;
-            -moz-border-radius: 16px;
-            -webkit-border-radius: 16px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            top: 0;
+            left: 0;
         }
 
         & when not (@skin= "material") and not (@skin="office-365") {
             height: 13px;
             width: 13px;
-            border-radius: 13px;
-            -moz-border-radius: 13px;
-            -webkit-border-radius: 13px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            top: 0;
+            left: 0;
         }
     }
 
     .e-radiobtn-wrap .e-radsmaller .e-rad-icon {
-        text-indent: 2px;
-        border-radius: 7px;
-        -moz-border-radius: 7px;
-        -webkit-border-radius: 7px;
-        padding: 0.5px;
-
-        & when (@skin= "material") {
-            font-size: 10px;
-            line-height: 15px;
-        }
-
-        & when (@skin= "office-365") {
-            font-size: 9px;
-            line-height: 15px;
-        }
-
-        & when not (@skin= "material") and not (@skin="office-365") {
-            font-size: 8px;
-            line-height: 12px;
-        }
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
     }
 
     .e-radiobtn-wrap .e-text {
@@ -5838,23 +5879,46 @@
         cursor: pointer;
         float: right;
         vertical-align: middle;
-        line-height: 12px;
-
+        line-height: 11px;
         & when (@skin= "material") {
-            line-height: 20px;
+            line-height: 17px;
+        }
+		& when (@skin="office-365"){
+            line-height: 17px;
+        }
+    }
+
+	.e-radiobtn-wrap.e-rtl .e-text {
+        float: left;
+		line-height: 9px;
+		margin-right: 3px;
+		& when (@skin= "material"){
+            line-height: 15px;
+        }
+		& when (@skin="office-365"){
+            line-height: 15px;
         }
     }
 
     .e-radiobtn-wrap.e-radmed .e-text {
-        line-height: 16px;
-
+        line-height: 13px;
         & when (@skin= "material") {
-            line-height: 25px;
+            line-height: 20px;
+        }
+		& when (@skin= "office-365") {
+            line-height: 18px;
         }
     }
+    .e-radiobtn-wrap > span.e-radsmaller > span.e-rad-icon.e-icon:before {
+        & when (@skin= "material") {
+            height: 16px;
+            width: 16px;
+        }
 
-    .e-radiobtn-wrap.e-rtl .e-text {
-        float: left;
+        & when (@skin="office-365") {
+            height: 16px;
+            width: 16px;
+        }
     }
 }
 
@@ -6326,7 +6390,6 @@
 
     .e-h-arrow, .e-v-arrow {
         display: block;
-        z-index: 10002;
     }
 
     .e-v-arrow.e-arrow-sans-down {
@@ -7412,6 +7475,7 @@
         min-height: 15px;
         min-width: 10px;
         border-image: initial;
+        outline: 0 none;
 
         & when (@skin= "material") {
             margin-left: 8px;
@@ -8516,7 +8580,7 @@
         display: block;
     }
 
-     .e-abs-position {
+    .e-abs-position {
         position: absolute;
     }
 
@@ -11959,8 +12023,14 @@ background-image: url('../@{font-path}/icons-white.png');
         margin-top: 0px;
     }
 
-    .e-grid .e-columnheader:not(.e-stackedHeaderRow) {
+    .e-grid .e-columnheader:not(.e-stackedHeaderRow), .e-grid th.e-headercell.e-draggable{
         cursor: pointer;
+    }
+	.e-grid .e-gridheader tr.e-resizedragicon{
+       cursor: col-resize;
+    }
+    .e-grid .e-resizedragicon th.e-headercell.e-draggable{
+	   cursor: col-resize;
     }
 
     .e-grid .e-columnheader.e-defaultcursor, .e-grid .e-headercell.e-defaultcursor {
@@ -12985,6 +13055,10 @@ background-image: url('../@{font-path}/icons-white.png');
         & when (@skin= "office-365") {
             top: 8px;
         }
+    }
+
+    .e-grid .e-filterdiv.e-searchinputdiv {
+        box-sizing: content-box;
     }
 
     .e-grid .e-gridpopup .e-tail:before, .e-grid .e-gridpopup .e-tail:after {
@@ -17977,8 +18051,8 @@ background-image: url('../@{font-path}/icons-white.png');
     }
 
     .e-fileexplorer .e-toolbar .e-splitbutton > span:first-child .e-icon {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         padding: 0 3px;
     }
 
@@ -20464,7 +20538,7 @@ background-image: url('../@{font-path}/icons-white.png');
 
     div.e-menuitem > div.e-expander:before, 
     div.e-columnmenu span.e-expander:before,
-    div.e-contextmenu div.e-expander:before,
+    div.e-tgcontextmenu div.e-expander:before,
     div.e-columnmenu div.e-expander:before {
         content: "\e67e" !important;
     }
@@ -20825,8 +20899,8 @@ background-image: url('../@{font-path}/icons-white.png');
         }
     }
 
-    .e-contextmenu,
-    .e-innerContextmenu {
+    .e-tgcontextmenu,
+    .e-tginnerContextmenu {
         & when (@skin= "material") {
             border-width: 0px;
             border-style: solid;
@@ -21175,6 +21249,10 @@ background-image: url('../@{font-path}/icons-white.png');
         font-weight: normal;
     }
 
+    .e-treegrid .e-gridheader tr.e-resizedragicon {
+        cursor: col-resize !important;
+    }
+
     .e-treegridtoolbar {
         border-color: #c3c3c3 !important;
         background-color: #fff;
@@ -21491,6 +21569,32 @@ background-image: url('../@{font-path}/icons-white.png');
         font-size: 20px;
         margin-top: 3px;
     }
+    .e-treegrid .e-updatedtd {
+        position:relative;
+    }
+    .e-treegrid .e-updatedtd:before {          
+        color: red;
+        width: 10px;
+        text-align: right;
+        position:absolute;
+        top:0px;
+        right:0px;
+    }    
+    .e-treegrid .e-tgupdatenotify:before {
+        & when (@skin= "material") {
+            content: "\e917";
+        }
+
+        & when (@skin= "office-365") {
+            content: "\e917";
+        }
+
+        & when not (@skin= "material") and not (@skin= "office-365") {
+            content: "\e918";
+        }
+        font-size: 6px;
+        font-family: 'ej-webfont';
+    }    
 
     .e-treegrid .e-table {
         width: 100%;
@@ -22452,7 +22556,7 @@ background-image: url('../@{font-path}/icons-white.png');
 
      .e-treegrid-columnmenu,
     .e-treegrid-contextmenu,
-    .e-innerContextmenu {
+    .e-tginnerContextmenu {
         & when (@skin= "material") {
             padding: 8px 0px 8px 0px;
             margin: 0px;
@@ -22545,8 +22649,8 @@ background-image: url('../@{font-path}/icons-white.png');
     }
 
     .e-columnmenu,
-    .e-innerContextmenu,
-    .e-contextmenu {
+    .e-tginnerContextmenu,
+    .e-tgcontextmenu {
         & when (@skin= "material") {
             border-width: 0px;
             border-style: solid;
@@ -22775,26 +22879,6 @@ background-image: url('../@{font-path}/icons-white.png');
             top: 3px;
             box-sizing: content-box;
             -moz-box-sizing: content-box;
-        }
-    }
-
-    @-webkit-keyframes e-ripple-treegrid {
-        100% {
-            & when (@skin = "material") {
-                opacity: 0;
-                -webkit-transform: scale(4);
-                transform: scale(4);
-            }
-        }
-    }
-
-    @keyframes e-ripple-treegrid {
-        100% {
-            & when (@skin = "material") {
-                opacity: 0;
-                -webkit-transform: scale(4);
-                transform: scale(4);
-            }
         }
     }
 
@@ -23160,7 +23244,7 @@ background-image: url('../@{font-path}/icons-white.png');
         }
     }
 
-     .e-contextmenu-image {
+     .e-tgcontextmenu-image {
         & when (@skin = "material") {
             padding: 8px 5px 8px 7px;
         }
@@ -23178,7 +23262,7 @@ background-image: url('../@{font-path}/icons-white.png');
         float: left;
     }
 
-     .e-contextmenu-icon {
+     .e-tgcontextmenu-icon {
         & when (@skin = "material") {
             padding: 8px 5px 8px 7px;
         }
@@ -23196,7 +23280,7 @@ background-image: url('../@{font-path}/icons-white.png');
         float: left;
     }
 
-     .e-contextmenu-label {
+     .e-tgcontextmenu-label {
         & when (@skin = "material") {
             padding: 5px 5px 6px 5px;
         }
@@ -23214,7 +23298,7 @@ background-image: url('../@{font-path}/icons-white.png');
         float: left;
     }
 
-    .e-contextmenu-label span {
+    .e-tgcontextmenu-label span {
         & when (@skin = "office-365") {
             font-size: 13px;
         }
@@ -23418,12 +23502,12 @@ background-image: url('../@{font-path}/icons-white.png');
         content: "\e74e";
     }
 
-    .e-headerContextmenu .e-icon {
+    .e-tgheaderContextmenu .e-icon {
         position: relative;
         top: 5px;
     }
 
-    .e-headerContextmenu .e-expander {
+    .e-tgheaderContextmenu .e-expander {
         float: right;
         position: relative;
         top: 0px;
@@ -23433,13 +23517,13 @@ background-image: url('../@{font-path}/icons-white.png');
         word-break: break-all;
     }
 
-    .e-contextmenu .e-save, 
-    .e-contextmenu .e-cancel {
+    .e-tgcontextmenu .e-save, 
+    .e-tgcontextmenu .e-cancel {
         position: relative;
         top: 3.5px;
     }
 
-    .e-contextmenu .e-edit {
+    .e-tgcontextmenu .e-edit {
         position: relative;
         top: 3px;
     }
@@ -23818,7 +23902,7 @@ background-image: url('../@{font-path}/icons-white.png');
         -o-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        float: left;
+        float: left\9;
     }
 
     .e-ganttchart td {
@@ -23998,8 +24082,35 @@ background-image: url('../@{font-path}/icons-white.png');
         top: 0;
         position: absolute;
     }
-
-    .e-ganttchart .e-weekends {
+    
+    .e-ganttchart .e-gantthistocell {
+          vertical-align: top !important;
+          position: relative;
+    }
+    .e-ganttchart .e-gantthistoworklabel{
+        position: absolute;
+        left: 2px;
+        font-size: 12px;
+        transform: rotate(90deg);      
+        bottom:10px;
+    }
+    .e-ganttchart .e-rverticalline,
+    .e-ganttchart .e-lverticalline {
+        border-left-width: 1px;
+        border-left-style: solid;
+        position: absolute;
+        margin-top: 6px;
+        width: 1px;
+    }
+    .e-ganttchart .e-horizontalline{
+        top: 6px;
+        border-top-style: solid;
+        border-top-width: 1px;
+        position: absolute;
+    }
+    .e-ganttchart .e-gantthistobar,
+    .e-ganttchart .e-weekends,
+    .e-ganttchart .e-ganttworkingtime {
         position: absolute;
     }
 
@@ -24069,6 +24180,28 @@ background-image: url('../@{font-path}/icons-white.png');
 
     .e-ganttchart .e-zerospacing {
         border-spacing: 0px;
+    }
+    .e-gantt-childtaskbar.e-gantt-unscheduletaskbar-left {
+        width: 7px;
+        border-right: transparent;
+        border-width: 3px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        padding-right: 4px;
+    }
+    .e-gantt-childtaskbar.e-gantt-unscheduletaskbar-right {
+        width: 7px;
+        border-left: transparent;
+        border-width: 3px;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        padding-left: 4px;
+    }
+    .e-gantt-childtaskbar.e-gantt-unscheduletaskbar {
+        border-style: none;
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
     }
 }
 
@@ -27072,8 +27205,8 @@ background-image: url('../@{font-path}/icons-white.png');
 
     @font-face {
         font-family: 'ej-reportviewericons';
-        src: url('@{font-icon-path}/reportviewer/ej-reportviewericons.eot?wpa4ep');
-        src: url('@{font-icon-path}/reportviewer/ej-reportviewericons.eot?wpa4ep#iefix') format('embedded-opentype'), url('@{font-icon-path}/reportviewer/ej-reportviewericons.ttf?wpa4ep') format('truetype'), url('@{font-icon-path}/reportviewer/ej-reportviewericons.woff?wpa4ep') format('woff'), url('@{font-icon-path}/reportviewer/ej-reportviewericons.svg?wpa4ep#ej-reportviewericons') format('svg');
+        src: url('@{font-path}/reportviewer/ej-reportviewericons.eot?wpa4ep');
+        src: url('@{font-path}/reportviewer/ej-reportviewericons.eot?wpa4ep#iefix') format('embedded-opentype'), url('@{font-path}/reportviewer/ej-reportviewericons.ttf?wpa4ep') format('truetype'), url('@{font-path}/reportviewer/ej-reportviewericons.woff?wpa4ep') format('woff'), url('@{font-path}/reportviewer/ej-reportviewericons.svg?wpa4ep#ej-reportviewericons') format('svg');
         font-weight: normal;
         font-style: normal;
     }
@@ -27092,6 +27225,38 @@ background-image: url('../@{font-path}/icons-white.png');
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    .e-reportviewer-errormodeltooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .e-reportviewer-errormodeltooltip .e-reportviewer-tooltiptext {
+        visibility: hidden;
+        width: 230px;
+        background-color: #F0F3F4;
+        color: #424949;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        margin-left: -60px;
+        font-size: 14px;
+        font-family: Segoe UI, Helvetica Neue, Ubuntu, Arial !important;
+    }
+
+     .e-reportviewer-errormodeltooltip .e-reportviewer-tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+    }
+
+     .e-reportviewer-errormodeltooltip:hover .e-reportviewer-tooltiptext {
+        visibility: visible;
+     }
 
     .e-reportviewer-toolbarcontainer {
         vertical-align: middle;
@@ -27349,7 +27514,7 @@ background-image: url('../@{font-path}/icons-white.png');
         }
     }
 
-     .e-reportviewer-paramblock-disable {
+     .e-reportviewer-paramblock-disable,  .e-reportviewer-toolbar-disable {
         pointer-events: none;
         opacity: 0.5;
     }
@@ -27365,6 +27530,7 @@ background-image: url('../@{font-path}/icons-white.png');
 
      .e-reportviewer-viewerblockcontent {
         width: 100%;
+        border-bottom: 1px solid;
     }
 
      .e-reportviewer-viewerblockcellcontent {
@@ -27518,15 +27684,14 @@ background-image: url('../@{font-path}/icons-white.png');
         }
 	}
 
-	 .e-reportviewer-box-border,  .e-reportviewer-pageviewcontainer,
-	 .e-reportviewer-pageouterline,  .e-reportviewer-viewercontainer,
+	 .e-reportviewer-box-border,  .e-reportviewer-pageviewcontainer,  .e-reportviewer-viewercontainer,
 	 .e-reportviewer-viewercontainer,  .e-reportviewer-viewerblock {
 		-webkit-box-sizing: border-box !important;
 		-moz-box-sizing: border-box !important;
 		box-sizing: border-box !important;
 	}
 
-	 .e-reportviewer-box-content,  .e-reportviewer-pageview {
+	 .e-reportviewer-box-content,  .e-reportviewer-pageview,  .e-reportviewer-pageouterline, {
 		-webkit-box-sizing: content-box !important;
 		-moz-box-sizing: content-box !important;
 		box-sizing: content-box !important;
@@ -27547,7 +27712,7 @@ background-image: url('../@{font-path}/icons-white.png');
 
      .e-reportviewer-label,  .e-reportviewer-labelpageno {
         border: none;
-        vertical-align: text-top;
+        vertical-align: inherit;
     }
 
      .e-reportviewer-documentmappopup {
@@ -27585,6 +27750,14 @@ background-image: url('../@{font-path}/icons-white.png');
 
      .e-reportviewer-expandtoggle {
         background: url('@{font-path}/reportviewer/expand.svg') no-repeat center;
+    }
+
+     .e-reportviewer-alertIcon {
+        background: url('@{font-path}/reportviewer/alertIcon.svg') no-repeat center;
+    }
+
+     .e-reportviewer-errorIcon {
+        background: url('@{font-path}/reportviewer/errorIcon.svg') no-repeat center;
     }
 
      .e-reportviewer-collapsetoggle {
@@ -27854,11 +28027,13 @@ background-image: url('../@{font-path}/icons-white.png');
             padding-top: 3px;
             padding-bottom: 3px;
             padding-left: 4px;
+            padding-right: 4px;
         }
         & when not (@skin = "material") and not (@skin = "office-365") {
             padding-top: 4px;
             padding-bottom: 4px;
             padding-left: 6px;
+            padding-right: 6px;
         }
     }
 
@@ -27876,7 +28051,11 @@ background-image: url('../@{font-path}/icons-white.png');
         vertical-align: text-bottom;
     }
 
-     .e-reportviewer-viewerblock-parentdiv .e-scrollbar .e-vscroll .e-vup.e-icon {
+     .e-reportviewer-viewerblock-parentdiv .e-scrollbar .e-vscroll .e-button.e-icon {
+        display: none;
+    }
+
+     .e-reportviewer-viewerblock-parentdiv .e-scrollbar .e-hscroll .e-button.e-icon {
         display: none;
     }
 
@@ -29148,9 +29327,8 @@ background-image: url('../@{font-path}/icons-white.png');
     }
 
     .e-excelfilter .e-menu.e-vertical .e-list > a {
-        & when not (@skin= "material") {
-            margin: 0px 10px 0px 15px;
-        }
+          margin: 0px 10px 0px 15px;
+        
 
         & when (@skin= "office-365") {
             padding-bottom: 13px;
@@ -29161,7 +29339,9 @@ background-image: url('../@{font-path}/icons-white.png');
 
     .e-excelfilter .e-menu.e-vertical .e-list > ul .e-list > a {
         padding-left: 15px;
-
+        & when (@skin= "material") {
+            padding-left: 20px;
+        }
         & when (@skin= "office-365") {
             padding-left: 0;
         }
@@ -29183,6 +29363,9 @@ background-image: url('../@{font-path}/icons-white.png');
 
     .e-excelfilter .e-menu.e-vertical .e-exceltick::before {
         margin-left: -7px;
+		& when (@skin= "material") {
+            margin-left: -1px;
+        }
     }
 
     .e-excelfilter .e-menu.e-vertical .e-exceltick:before {
@@ -34592,7 +34775,7 @@ slideRight Animate
     }
 
     .e-ribbon.e-responsive .e-respcontent .e-groupdiv .e-resizegroupdiv {
-         height: 100%;
+         height: inherit;
     }
 
      .e-ribbon .e-groupdiv .e-menu,
@@ -37006,7 +37189,7 @@ slideRight Animate
     .e-spreadsheet .e-rightalign {
         direction: rtl;
         unicode-bidi: plaintext;
-		-moz-unicode-bidi: plaintext;
+		unicode-bidi: -moz-plaintext;
     }
 
     .e-spreadsheet .e-calign {
@@ -37616,21 +37799,21 @@ slideRight Animate
         text-indent: -2px;
     }
 
-    .e-spreadsheet .e-findbtn .e-btntxt,
-    .e-spreadsheet .e-fpanebtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-findbtn .e-btntxt,
+    .e-spreadsheet .e-split-btn.e-btn.e-fpanebtn .e-btntxt {
         line-height: 14px;
         text-indent: 4px;
         text-align: left;
         width: 42px;
     }
 
-    .e-spreadsheet .e-coptbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-coptbtn .e-btntxt {
         line-height: 14px;
         text-indent: -1px;
     }
 
-    .e-spreadsheet .e-deletesbtn .e-btntxt,
-    .e-spreadsheet .e-insertsbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-deletesbtn .e-btntxt,
+    .e-spreadsheet .e-split-btn.e-btn.e-insertsbtn .e-btntxt {
         text-indent: 8px;
 
         & when (@skin = "material") {
@@ -37644,9 +37827,10 @@ slideRight Animate
 
     .e-spreadsheet .e-ssr-charttype + .e-btntxt,
     .e-spreadsheet .e-ssr-srcolumn + .e-btntxt,
-    .e-spreadsheet .e-formatastablebtn .e-btntxt,
+    .e-spreadsheet .e-split-btn.e-btn.e-formatastablebtn .e-btntxt,
     .e-spreadsheet .e-ssr-namemngr + .e-btntxt,
-    .e-spreadsheet .e-ssr-protectsheet + .e-btntxt {
+    .e-spreadsheet .e-tbtn.e-btn .e-ssr-protectsheet + .e-btntxt,
+	.e-spreadsheet .e-tbtn.e-btn .e-ssr-protect + .e-btntxt {
         line-height: 14px;
     }
 
@@ -37674,21 +37858,21 @@ slideRight Animate
         height: 40px;
     }
 
-    .e-spreadsheet .e-cformatbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-cformatbtn .e-btntxt {
         line-height: 14px;
         text-align: left;
         text-indent: 4px;
         width: 67px;
     }
 
-    .e-spreadsheet .e-cellstylebtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-cellstylebtn .e-btntxt {
         line-height: 14px;
         text-indent: 10px;
         text-align: left;
         width: 38px;
     }
 
-    .e-spreadsheet .e-sortfltrbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-sortfltrbtn .e-btntxt {
         line-height: 14px;
         text-align: left;
         width: 35px;
@@ -37699,7 +37883,7 @@ slideRight Animate
         }
     }
 
-    .e-spreadsheet .e-ssr-validationsbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-ssr-validationsbtn.e-droparrowbottom .e-btntxt{
         line-height: 14px;
         width: 71px;
 
@@ -37716,13 +37900,13 @@ slideRight Animate
         }
     }
 
-    .e-spreadsheet .e-clearbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-clearbtn .e-btntxt {
         & when not (@skin = "material") {
             padding-bottom: 16px;
         }
     }
 
-    .e-spreadsheet .e-autosumbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-autosumbtn .e-btntxt {
         padding-bottom: 6px;
     }
 
@@ -37732,7 +37916,7 @@ slideRight Animate
         padding-bottom: 4px;
     }
 
-    .e-spreadsheet .e-mergebtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-mergebtn .e-btntxt {
         & when not (@skin = "material") {
             text-indent: -16px;
             line-height: 15px;
@@ -37751,12 +37935,12 @@ slideRight Animate
         text-indent: -9px;
     }
 
-    .e-spreadsheet .e-ssr-pastesbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-ssr-pastesbtn .e-btntxt {
         text-indent: 6px;
         padding-bottom: 7px;
     }
 
-    .e-spreadsheet .e-chartlayoutbtn .e-btntxt {
+    .e-spreadsheet .e-split-btn.e-btn.e-chartlayoutbtn .e-btntxt {
         line-height: 14px;
         text-align: left;
         text-indent: -2px;
@@ -37766,6 +37950,9 @@ slideRight Animate
             width: 58px;
         }
     }
+	.e-spreadsheet .e-split-btn.e-btn.e-borderbtn .e-icon:before {
+		text-indent: -1px;
+	}
     /* -------------------Clipboard Font Icons ------------------- */
     .e-spreadsheet .e-ssr-pastesbtn {
         text-indent: -12px;
@@ -42206,6 +42393,18 @@ slideRight Animate
     padding-right: 8px;
      }
 
+      .e-ss-topmaindiv {
+         padding-bottom: 7px;
+     }
+
+      .e-dlg-fieldlabel {
+       padding-left: 5px;
+    }
+
+     .e-dlg-fieldvaluelabel {
+    padding: 0px 0px 7px 0px;
+    }
+
      .e-ss-rightdiv {
         width: 240px;
 
@@ -44436,9 +44635,22 @@ slideRight Animate
     left: 0px;
     border-radius: 50%;
     opacity: 0;
-    -moz-animation: e-media-fadeout .5s linear 1 normal forwards;
-    -webkit-animation: e-media-fadeout .5s linear 1 normal forwards;
-    animation: e-media-fadeout .5s linear 1 normal forwards;
+    -webkit-animation-name: e-media-fadeout;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: initial;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-play-state: initial;
+    -moz-animation-name: e-media-fadeout;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-delay: initial;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-play-state: initial;
     animation-name: e-media-fadeout;
     animation-duration: 0.5s;
     animation-timing-function: linear;

@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*!
 *  filename: ej.reportdesigner.theme.css
-*  version : 12.3
-*  Copyright Syncfusion Inc. 2001 - 2018. All rights reserved.
+*  version : 17.1.0.38
+*  Copyright Syncfusion Inc. 2001 - 2019. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -188,6 +188,9 @@
 }
 .e-reportdesigner-widget-textbox:before {
   color: #ec7838;
+}
+.e-reportdesigner-widget-custom:before {
+  color: #4da6ff;
 }
 .e-reportdesigner-area-chart .path1:before {
   color: #4da6ff;
@@ -546,6 +549,42 @@
 .e-reportdesigner-alert-info .path2:before {
   color: #ebba16;
 }
+.e-reportdesigner-widget-tablix .path1:before {
+  color: #4da7ff;
+}
+.e-reportdesigner-widget-tablix .path2:before {
+  color: #4da7ff;
+}
+.e-reportdesigner-widget-tablix .path3:before {
+  color: #4da7ff;
+}
+.e-reportdesigner-widget-tablix .path4:before {
+  color: #4da7ff;
+}
+.e-reportdesigner-widget-tablix .path5:before {
+  color: #4da7ff;
+}
+.e-reportdesigner-widget-tablix .path6:before {
+  color: #ec7839;
+}
+.e-reportdesigner-widget-tablix .path7:before {
+  color: #ec7839;
+}
+.e-reportdesigner-widget-tablix .path8:before {
+  color: #ec7839;
+}
+.e-reportdesigner-widget-list .path1:before {
+  color: #4da7ff;
+}
+.e-reportdesigner-widget-list .path2:before {
+  color: #ec7839;
+}
+.e-reportdesigner-widget-list .path3:before {
+  color: #ec7839;
+}
+.e-reportdesigner-widget-list .path4:before {
+  color: #4da7ff;
+}
 /*----------------------ReportDesigner Font Icons----------------------*/
 
 /*----------------------Toolbar Start----------------------*/
@@ -755,6 +794,11 @@
   /* IE6-9 */
 
 }
+.e-rptdesigner-itemInfo-template,
+.e-rptdesigner-grpingpanel-template {
+  font-size: 12px;
+  float: left;
+}
 /************************Itempanel End***********************************/
 
 /*----------------------PropertyPanel Start-----------------------*/
@@ -774,6 +818,20 @@
 .e-rptdesigner-browse-icon {
   font-size: 16.5px;
 }
+.e-rptdesigner-prop-dataAlert {
+  background-color: #fff8ed;
+  
+}
+.e-rptdesigner-prop-dataAlert {
+  border-bottom: 1px solid #cecece;
+}
+.e-rptdesigner-prop-dataAlert-caption {
+  font-size: 12px !important;
+  
+}
+.e-rptdesigner-prop-dataAlert-caption {
+  color: #333333;
+}
 /*----------------------PropertyPanel End-----------------------*/
 
 /*----------------------DataConfiguration Start-----------------------*/
@@ -789,23 +847,7 @@
   float: right;
 }
 .e-rptdesigner-dataconfig-header {
-  background: #fcfcfc;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #fcfcfc, #e0e0e0);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc), color-stop(100%, #e0e0e0));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #fcfcfc, #e0e0e0);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #fcfcfc, #e0e0e0);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #fcfcfc, #e0e0e0);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #fcfcfc, #e0e0e0);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e0e0e0', GradientType=0);
-  /* IE6-9 */
-
+  background-color: #fcfcfc;
 }
 .e-rptdesigner-dataconfig-icon {
   font-size: 18px;
@@ -1140,7 +1182,7 @@
   font-size: 12px;
 }
 .e-reportdesigner-designer-configuration .e-radiobtn-wrap .e-radsmaller .e-rad-icon {
-  font-size: 7px;
+  font-size: 14px;
 }
 .e-designer-property-header {
   background: white !important;
@@ -1200,16 +1242,22 @@
 /*----------------------ReportDesigner Common Styles----------------------*/
 
 .e-reportdesigner-dataset-okbtn,
-.e-rptdesigner-okbtn,
 .e-designer-alert-okbtn {
   
 }
 .e-reportdesigner-dataset-okbtn,
-.e-rptdesigner-okbtn,
 .e-designer-alert-okbtn {
-  background: #3277b2 !important;
   border-color: #cecece !important;
+  background: #3277b2 !important;
   color: white !important;
+}
+.e-rptdesigner-okbtn {
+  background: #3277b2 !important;
+  color: white !important;
+  
+}
+.e-rptdesigner-okbtn {
+  border-color: #cecece !important;
 }
 .e-reportdesigner-dataset-okbtn:hover,
 .e-rptdesigner-okbtn:hover,
@@ -1295,7 +1343,7 @@
   box-shadow: 0 0 1px #cecece;
   border: 0.5px solid #cecece;
 }
-.e-designer-content,
+.e-reportdesigner .e-designer-content,
 .e-querydesigner-dataset-text {
   font-size: 12px !important;
 }
@@ -1389,7 +1437,7 @@
   font-size: 20px !important;
   color: #666666;
 }
-.e-rptdesigner-param-text {
+.e-reportdesigner .e-rptdesigner-param-text {
   font-size: 12px !important;
   font-weight: 400 !important;
 }
@@ -1426,6 +1474,7 @@
 /*----------------------EJ Designer Fontfamily----------------------*/
 
 .e-designer-fontfamily,
+.e-designer-codemoduletextbox,
 .e-rptdesigner-toolbar-zoom,
 .e-designer-content-label,
 .e-designer-content-label .e-input,
@@ -1508,8 +1557,14 @@
 .e-rptdesigner-designbutton .e-btntxt,
 .e-designer-ejdialog .e-title,
 .e-designer-dialog .e-title,
-.e-designer-alertbox .e-title {
+.e-designer-alertbox .e-title,
+.e-rptdesigner-itemInfo-template,
+.e-rptdesigner-grpingpanel-template,
+.e-designer-tablix-alert-radiobtn .e-text {
   font-family: 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial' !important;
+}
+.e-textarea-codeeditor .CodeMirror {
+  font-family: 'Segoe UI' !important;
 }
 /*----------------------EJ Designer Fontfamily----------------------*/
 
@@ -1611,7 +1666,7 @@
   font-size: 30px;
 }
 .e-rptdesigner-img-divhover {
-  border: 1px solid;
+  border: 2px solid;
   border-color: #cecece;
 }
 .e-rptdesigner-img-childdivhover {
@@ -1645,9 +1700,11 @@
 /*----------------------Dialog Common Styles Start-----------------------*/
 
 .e-rptdesigner-param-assign,
+.e-rptdesigner-codemodule,
 .e-rptdesigner-add-icon,
 .e-rptdesigner-add-btn,
 .e-rptdesigner-add-label,
+.e-rptdesigner-add-code-label,
 .e-rptdesigner-delete-icon,
 .e-rptdesigner-txtmark {
   font-size: 12px;
@@ -1663,6 +1720,9 @@
   border: 0.5px solid #c8c8c8;
 }
 .e-rptdesigner-add-label {
+  color: #282827;
+}
+.e-rptdesigner-add-code-label {
   color: #282827;
 }
 .e-rptdesigner-delete-icon {
@@ -1867,6 +1927,9 @@
 .e-rptdesigner-format-prevwChild {
   color: #333333;
 }
+.e-rptdesigner-format-font {
+  font-weight: 400 !important;
+}
 /************************FormatDialog  CSS End***********************************/
 
 /*----------------------Ejdesigner Overridden css Start-----------------------*/
@@ -2044,8 +2107,8 @@
 
 /*----------------------Scroller Start-----------------------*/
 
-.e-reportdesigner-scroller .e-scrollbar .e-icon {
-  font-size: 0;
+.e-reportdesigner-scroller .e-vscrollbar {
+  border-top: 1px solid #cecece;
 }
 /*----------------------Scroller End-----------------------*/
 
@@ -2186,6 +2249,192 @@
 }
 /*----------------------Shared Dataset CSS Start-----------------------*/
 
+/*************************************Tablix Start******************************************/
+
+/*************************************Tablix Grouping Panel css Start******************************************/
+
+.e-rptdesigner-rowColumn-openCloseDiv,
+.e-rptdesigner-rowColumn-headerTable,
+.e-rptdesigner-rowColumn-containerTable,
+.e-rptdesigner-rowColumn-bodyContainer {
+  
+}
+.e-rptdesigner-rowColumn-openCloseDiv,
+.e-rptdesigner-rowColumn-headerTable,
+.e-rptdesigner-rowColumn-containerTable,
+.e-rptdesigner-rowColumn-bodyContainer {
+  background-color: #fcfcfc;
+}
+.e-rptdesigner-rowColumn-container {
+  border-color: #cecece;
+}
+.e-rptdesigner-rowColumn-headerDiv {
+  
+  color: #333333;
+}
+.e-rptdesigner-rowColumn-headerDiv {
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #cecece;
+}
+.e-rptdesigner-rowColumn-headerDiv {
+  background: #fcfcfc;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #fcfcfc, #e0e0e0);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc), color-stop(100%, #e0e0e0));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fcfcfc, #e0e0e0);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fcfcfc, #e0e0e0);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fcfcfc, #e0e0e0);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fcfcfc, #e0e0e0);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e0e0e0', GradientType=0);
+  /* IE6-9 */
+
+}
+.e-rptdesigner-rowColumn-rowDiv,
+.e-rptdesigner-rowColumn-columnDiv {
+  
+}
+.e-rptdesigner-rowColumn-rowDiv,
+.e-rptdesigner-rowColumn-columnDiv {
+  background-color: white;
+}
+.e-rptdesigner-headerRowSpan,
+.e-rptdesigner-headerColumn,
+.e-rptdesigner-rowColumn-fieldNameDiv,
+.e-rptdesigner-rowColumn-menuIcon {
+  font-size: 12px;
+}
+.e-rptdesigner-rowColumn-rowDiv {
+  border: 1px solid #cecece;
+}
+.e-rptdesigner-rowColumn-columnDiv {
+  border: 1px solid #cecece;
+}
+.e-rptdesigner-rowColumn-containerTable {
+  border: 1px solid #cecece;
+  color: #333333;
+}
+.e-rptdesigner-rowColumn-menuDiv {
+  border-left: 0.5px solid #cecece;
+}
+.e-rptdesigner-group-list-hover {
+  
+}
+.e-rptdesigner-group-list-hover {
+  color: #333333;
+}
+.e-rptdesigner-group-list-hover {
+  background: #f4f4f4;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f4f4f4, #e9e9e9);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #e9e9e9));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f4f4f4, #e9e9e9);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f4f4f4, #e9e9e9);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f4f4f4, #e9e9e9);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #f4f4f4, #e9e9e9);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#e9e9e9', GradientType=0);
+  /* IE6-9 */
+
+}
+.e-rptdesigner-user-selection-active {
+  
+}
+.e-rptdesigner-user-selection-active {
+  background: #3277b2;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #3277b2, #296293);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3277b2), color-stop(100%, #296293));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #3277b2, #296293);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #3277b2, #296293);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #3277b2, #296293);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #3277b2, #296293);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3277b2', endColorstr='#296293', GradientType=0);
+  /* IE6-9 */
+
+}
+.e-rptdesigner-user-selection-active,
+.e-rptdesigner-user-selection-active .e-rptdesigner-rowColumn-menuIcon,
+.e-rptdesigner-user-selection-active .e-rptdesigner-group-detailIcon,
+.e-rptdesigner-user-selection-active .e-rptdesigner-group-icon {
+  
+}
+.e-rptdesigner-user-selection-active,
+.e-rptdesigner-user-selection-active .e-rptdesigner-rowColumn-menuIcon,
+.e-rptdesigner-user-selection-active .e-rptdesigner-group-detailIcon,
+.e-rptdesigner-user-selection-active .e-rptdesigner-group-icon {
+  color: white;
+}
+.e-rptdesigner-groupPanel-resizer {
+  
+}
+.e-rptdesigner-groupPanel-resizer {
+  background-color: #cecece;
+}
+.e-rptdesigner-groupPanel-resizer:hover {
+  
+}
+.e-rptdesigner-groupPanel-resizer:hover {
+  background-color: #f4f4f4;
+  border-color: #cecece;
+}
+.e-rptdesigner-groupPanel-resize-helper {
+  
+}
+.e-rptdesigner-groupPanel-resize-helper {
+  background: #3277b2;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #3277b2, #296293);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3277b2), color-stop(100%, #296293));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #3277b2, #296293);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #3277b2, #296293);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #3277b2, #296293);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #3277b2, #296293);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3277b2', endColorstr='#296293', GradientType=0);
+  /* IE6-9 */
+
+}
+.e-rptdesigner-rowColumn-rowIconSpan,
+.e-rptdesigner-rowColumn-advIconSpan,
+.e-rptdesigner-rowColumn-menuIcon,
+.e-rptdesigner-rowColumn-openCloseIcon,
+.e-rptdesigner-group-detailIcon,
+.e-rptdesigner-group-icon,
+.e-rptdesigner-rowColumn-groupIcon-size {
+  color: #666666;
+}
+/*************************************Tablix Grouping Panel End******************************************/
+
+.e-rptdesigner-textbox-editIcon {
+  color: #159bd7;
+}
+.e-rptdesigner-group-line.e-rptdesigner-group-detailIcon {
+  color: #c3c3c3;
+}
+/*************************************Tablix End******************************************/
+
 /*------------------------------querydesigner toolbar Start-------------------------------*/
 
 .e-querydesigner-toolbarcontainer .e-qrydesigner-preview,
@@ -2195,6 +2444,9 @@
 }
 .e-querydesigner-toolbarcontainer .e-qrydesigner-filter {
   font-size: 16px;
+}
+.e-querydesigner-toolbarcontainer .e-qrydesigner-param {
+  font-size: 20px;
 }
 .e-querydesigner-toolbarcontainer.e-responsive-toolbar {
   border-top: 0 !important;
@@ -2206,6 +2458,9 @@
 }
 .e-querydesigner-toolbarcontainer.e-responsive-toolbar {
   border-right: 1px solid #cecece;
+}
+.e-qrydesigner-separator.e-horizontal.e-separator {
+  border-right: 0 none;
 }
 /*------------------------------querydesigner toolbar End-------------------------------*/
 
@@ -2306,10 +2561,18 @@
 .e-qrydesigner-datatable .e-item .e-active.e-node-hover .e-qrydesigner-treeview.e-checkmark {
   color: #333333 !important;
 }
-.e-qrydesigner-dataheader {
+.e-qrydesigner-dataheader,
+.e-qrydesigner-Update,
+.e-qrydesigner-update-icon {
   font-size: 12px;
   font-weight: 600;
   color: #282827 !important;
+}
+.e-qrydesigner-generatepreview {
+  font-size: 12px;
+  font-weight: 600;
+  color: #282827 !important;
+  
 }
 .e-qrydesigner-datacontent {
   font-size: 12px;
@@ -2384,7 +2647,7 @@
 .e-qrydesigner-datatable .e-item .e-active.e-node-hover .e-qrydesigner-treeview {
   color: #333333 !important;
 }
-.e-query-text {
+.e-querydesigner .e-query-text {
   font-size: 12px !important;
 }
 .e-table-user-selection-active .e-qrydesigner-table-column-deselect:before {
@@ -2464,6 +2727,9 @@
   border-top-width: 0.5px;
   border-color: #cecece;
 }
+.e-qrydesigner-query-table {
+  background-color: white;
+}
 /*------------------------------querydesigner surface End-------------------------------*/
 
 /*------------------------------querydesigner dependent overwritten-------------------------------*/
@@ -2486,8 +2752,10 @@
 .e-qrydesigner-norow-msg,
 .e-qrydesigner-empty-msg,
 .e-qrydesigner-dataheader,
+.e-qrydesigner-Update,
 .e-qrydesigner-add-label,
 .e-qrydesigner-okbtn.e-txt,
+.e-qrydesigner-texteditor,
 .e-qrydesigner-cancelbtn,
 .e-qrydesigner-cancelbtn.e-txt,
 .e-qrydesigner-add-btn,
@@ -2590,12 +2858,12 @@
   color: #ee2924;
 }
 .e-qrydesigner-okbtn {
+  background: #3277b2 !important;
+  color: white !important;
   
 }
 .e-qrydesigner-okbtn {
-  background: #3277b2 !important;
-  border-color: #cecece;
-  color: white !important;
+  border-color: #cecece !important;
 }
 .e-qrydesigner-okbtn:hover {
   border-color: #cecece;
@@ -2769,6 +3037,13 @@
   color: #282827;
 }
 /*----------------------Query Param CSS End-----------------------*/
+
+/************************Report Parameter Start***********************************/
+
+.e-qrydesigner-dataparam-font {
+  font-size: 12px;
+}
+/************************Report Parameter End***********************************/
 
 /*------------------------------querydesigner Common Css Start-------------------------------*/
 
